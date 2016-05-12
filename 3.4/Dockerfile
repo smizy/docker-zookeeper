@@ -28,7 +28,9 @@ RUN set -x \
     && chown -R zookeeper:zookeeper \
         ${ZOOKEEPER_HOME} \
         ${ZOOKEEPER_DATA_DIR} \
-        ${ZOOKEEPER_DATALOG_DIR} 
+        ${ZOOKEEPER_DATALOG_DIR} \
+    ## remove unnecessary files
+    && rm -rf ${ZOOKEEPER_HOME}/src ${ZOOKEEPER_HOME}/docs
 
 COPY entrypoint.sh /usr/local/bin/ 
 COPY zoo.cfg       ${ZOOKEEPER_CONF_DIR}/
