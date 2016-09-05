@@ -1,16 +1,19 @@
-FROM java:8-jre-alpine
+FROM alpine:3.4
 MAINTAINER smizy
 
-ENV ZOOKEEPER_VERSION     3.4.8
+ENV ZOOKEEPER_VERSION     3.4.9
 ENV ZOOKEEPER_HOME        /usr/local/zookeeper-${ZOOKEEPER_VERSION}
 ENV ZOOKEEPER_DATA_DIR    /zookeeper
 ENV ZOOKEEPER_DATALOG_DIR /var/log/zookeeper
 ENV ZOOKEEPER_CONF_DIR    ${ZOOKEEPER_HOME}/conf
-ENV PATH                  $PATH:${ZOOKEEPER_HOME}/bin
+
+ENV JAVA_HOME  /usr/lib/jvm/default-jvm
+ENV PATH       $PATH:${JAVA_HOME}/bin:${ZOOKEEPER_HOME}/bin
 
 RUN set -x \
     && apk --no-cache add \
         bash \
+        openjdk8-jre \
         su-exec \ 
     && mirror_url=$( \
         wget -q -O - http://www.apache.org/dyn/closer.cgi/zookeeper/ \

@@ -1,6 +1,7 @@
 # docker-zookeeper
 
-[![](https://imagelayers.io/badge/smizy/zookeeper:3.4-alpine.svg)](https://imagelayers.io/?images=smizy/zookeeper:3.4-alpine 'Get your own badge on imagelayers.io')
+[![](https://images.microbadger.com/badges/image/smizy/zookeeper:3.4.9-alpine.svg)](http://microbadger.com/images/smizy/zookeeper:3.4.9-alpine "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/smizy/zookeeper:3.4.9-alpine.svg)](http://microbadger.com/images/smizy/zookeeper:3.4.9-alpine "Get your own version badge on microbadger.com")
 
-zookeeper docker image based on java:8-jre-alpine
+Apache Zookeeper docker image based on alpine
 
