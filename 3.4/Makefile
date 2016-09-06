@@ -17,4 +17,7 @@ runtime:
 
 .PHONY: test
 test:
+	(docker network ls | grep vnettest ) || docker network create vnettest
+	(docker ps --format {{.Names}} | grep zookeeper-1 ) || docker run --name zookeeper-1 --hostname zookeeper-1.vnettest --net vnettest -d smizy/zookeeper -server 1 1 vnettest 
+
 	bats ../test/test_*.bats
