@@ -1,7 +1,21 @@
 FROM alpine:3.4
 MAINTAINER smizy
 
-ENV ZOOKEEPER_VERSION     3.4.9
+ARG BUILD_DATE
+ARG VCS_REF
+ARG VERSION
+
+LABEL \
+    org.label-schema.build-date=$BUILD_DATE \
+    org.label-schema.docker.dockerfile="/3.4/Dockerfile" \
+    org.label-schema.license="Apache License 2.0" \
+    org.label-schema.name="smizy/zookeeper" \
+    org.label-schema.url="https://github.com/smizy" \
+    org.label-schema.vcs-ref=$VCS_REF \
+    org.label-schema.vcs-type="Git" \
+    org.label-schema.vcs-url="https://github.com/smizy/docker-zookeeper"
+
+ENV ZOOKEEPER_VERSION     $VERSION
 ENV ZOOKEEPER_HOME        /usr/local/zookeeper-${ZOOKEEPER_VERSION}
 ENV ZOOKEEPER_DATA_DIR    /zookeeper
 ENV ZOOKEEPER_DATALOG_DIR /var/log/zookeeper
