@@ -11,6 +11,8 @@ load test_helper
   run docker run  --rm  --net vnettest -e ZOO_LOG4J_PROP=ERROR smizy/zookeeper zkCli.sh -server zookeeper-1.vnettest ls / 
   [ $status -eq 0 ]
 
-  n=$(( ${#lines[*]} -1 ))
+  n=${#lines[*]}
+  n=$(( $n -1 ))
+  echo "${lines[$n]}"
   [ "${lines[$n]}" = "[zookeeper]" ]
 }
