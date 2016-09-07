@@ -38,7 +38,7 @@ deployment:
     branch: master
     owner: smizy
     commands:
-      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker login -u $DOCKER_USER -p $DOCKER_PASS
       - docker tag smizy/zookeeper smizy/zookeeper:${TAG}
       - docker tag smizy/zookeeper smizy/zookeeper:${TAG_SHORT}
       - docker push smizy/zookeeper:${TAG}
