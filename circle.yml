@@ -28,7 +28,7 @@ dependencies:
 
 test:
   override:
-    - docker inspect smizy/zookeeper
+    - docker inspect smizy/zookeeper:${TAG}
     - make test
 
 # https://circleci.com/docs/configuration#deployment
