@@ -12,7 +12,7 @@ runtime:
 		--build-arg BUILD_DATE=${BUILD_DATE} \
 		--build-arg VCS_REF=${VCS_REF} \
 		--build-arg VERSION=${VERSION} \
-		--rm -t smizy/zookeeper .
+		--rm -t smizy/zookeeper:${TAG} .
 	docker images | grep zookeeper
 
 .PHONY: test
